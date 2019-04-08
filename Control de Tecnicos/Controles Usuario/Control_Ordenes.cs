@@ -450,6 +450,17 @@ namespace Control_de_Tecnicos.Controles_Usuario
                         ObjServer.Sentencia();
                     }
                     #endregion
+                    //var fechaNull = DBNull.Value.; 
+                    string fechaNull = null;
+                    int estado = 1;
+                    if (RdbProgramada.Checked)
+                    {
+                        fechaNull = DtFechaInicio.Text;
+                        estado = 2;
+                    }
+                        
+
+
 
                     sql = "";
                     sql = string.Format("INSERT INTO  dbo.Orden(Ord_Numero,Ord_Fecha, Ord_Hora,   Ord_CodServicio, " +
@@ -457,7 +468,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                                   "Ord_FechaInicio, Ord_ObsResultadoRevision, Ord_Factura,      " +
                                   "Ord_Valor, Ord_Garantia, Ord_ObsSalida, Ord_FechaTerminacion," +
                                   "Ord_FechaEntrega, Ord_Estado)                                " +
-                                  "VALUES({10},GETDATE(),CONVERT (time,GETDATE()),{0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},'{9}',GETDATE(), GETDATE(),1)", CboServicio.SelectedValue, TxtObservacion.Text, "123", TxtDocumento.Text, DtFechaInicio.Text, TxtObservacionRevision.Text, TxtNunFactura.Text, TxtValor.Value, TxtGarantia.Text, TxtObservacionSalida.Text, NumeroOrden);
+                                  "VALUES({10},GETDATE(),CONVERT (time,GETDATE()),{0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},'{9}',GETDATE(), GETDATE(),{11})", CboServicio.SelectedValue, TxtObservacion.Text, "123", TxtDocumento.Text, fechaNull, TxtObservacionRevision.Text, TxtNunFactura.Text, TxtValor.Value, TxtGarantia.Text, TxtObservacionSalida.Text, NumeroOrden,estado);
 
                     comman.CommandText = sql;
                     comman.ExecuteNonQuery();
@@ -540,6 +551,82 @@ namespace Control_de_Tecnicos.Controles_Usuario
             {
                 LblFechaInicio.Visible = false;
                 DtFechaInicio.Visible = false;
+            }
+        }
+
+        public void CARGAR_ORDEN(int NumeroOrden)
+        {
+            DataTable table = null;
+            string sql = string.Format("SELECT [Ord_Numero]           " +
+                         ",[Ord_Fecha]                  " +
+                         ",[Ord_Hora]                   " +
+                         ",[Ord_CodServicio]            " +
+                         ",[Ord_ObsEntrada]             " +
+                         ",[Ord_DocUsuario]             " +
+                         ",[Ord_DocCliente]             " +
+                         ",[Ord_FechaInicio]            " +
+                         ",[Ord_ObsResultadoRevision]   " +
+                         ",[Ord_Factura]                " +
+                         ",[Ord_Valor]                  " +
+                         ",[Ord_Garantia]               " +
+                         ",[Ord_ObsSalida]              " +
+                         ",[Ord_FechaTerminacion]       " +
+                         ",[Ord_FechaEntrega]           " +
+                         ",[Ord_Estado]                 " +
+                         "FROM[dbo].[Orden] WHERE Ord_Numero={0}",NumeroOrden);
+
+            table = new DataTable();
+            table = ObjServer.LlenarTabla(sql);
+
+            if (table.Rows.Count<=0)
+            {
+                MessageBox.Show("No se han encontrado registros", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            foreach (DataRow item in table.Rows)
+            {
+                LblNumeroOrden.Text = item["Ord_Numero"].ToString();
+                TxtDocumento.Text = item["Ord_DocCliente"].ToString();
+                DtFechaInicio.Text = item["Ord_FechaInicio"].ToString();
+                TxtObservacionRevision.Text = item["Ord_ObsResultadoRevision"].ToString();
+                TxtNunFactura.Text = item["Ord_Factura"].ToString();
+                TxtValor.Value = Convert.ToInt32(item["Ord_Valor"]);
+                TxtGarantia.Text = item["Ord_Garantia"].ToString();
+                TxtObservacionSalida.Text = item["Ord_ObsSalida"].ToString();
+                DtFechaEntregada.Text = item["Ord_FechaEntrega"].ToString();
+                DtFechaAgendada.Text = item["Ord_Fecha"].ToString();
+            }
+
+
+            sql = "SELECT dbo.Producto.Prod_Codigo, " +
+                    "dbo.Producto.Prod_Descripcion,OrdDet_Cantidad "+
+                    "FROM dbo.Producto INNER JOIN  " +
+                    "dbo.OrdenDetalle ON dbo.Producto.Prod_Codigo = "+
+                    "dbo.OrdenDetalle.OrdDet_CodProducto";
+            table = new DataTable();
+            table = ObjServer.LlenarTabla(sql);
+            foreach (DataRow item in table.Rows)
+            {
+                string cod = item["Prod_Codigo"].ToString();
+                string des= item["Prod_Descripcion"].ToString();
+                string cant = item["OrdDet_Cantidad"].ToString();
+                DgvProductos.Rows.Add(cod, des, cant);
+            }
+
+            sql = "SELECT dbo.Usuario.Us_Documento, " +
+                "dbo.Usuario.Us_Nombre, " +
+                "dbo.UsuarioOrden.UsuOrden_CodTipoAsignado" +
+                "FROM dbo.Usuario INNER JOIN dbo.UsuarioOrden " +
+                "ON dbo.Usuario.Us_Documento = dbo.UsuarioOrden.UsuOrden_DocUsu";
+
+            table = new DataTable();
+            table = ObjServer.LlenarTabla(sql);
+            foreach (DataRow item in table.Rows)
+            {
+                string docum = item["Us_Documento"].ToString();
+                string nombre = item["Us_Nombre"].ToString();
+                string cargo = item["UsuOrden_CodTipoAsignado"].ToString();
+                DgvTecnico.Rows.Add(docum,nombre,cargo);
             }
         }
     }
