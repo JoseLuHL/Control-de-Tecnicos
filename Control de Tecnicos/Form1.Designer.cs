@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.control_Ordenes1 = new Control_de_Tecnicos.Controles_Usuario.Control_Ordenes();
+            this.control_Cliente1 = new Control_de_Tecnicos.Controles_Usuario.Control_Cliente();
             this.SuspendLayout();
             // 
-            // control_Ordenes1
+            // control_Cliente1
             // 
-            this.control_Ordenes1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.control_Ordenes1.Location = new System.Drawing.Point(0, 0);
-            this.control_Ordenes1.Name = "control_Ordenes1";
-            this.control_Ordenes1.Size = new System.Drawing.Size(800, 450);
-            this.control_Ordenes1.TabIndex = 0;
+            this.control_Cliente1.AutoScroll = true;
+            this.control_Cliente1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.control_Cliente1.Location = new System.Drawing.Point(0, 0);
+            this.control_Cliente1.Name = "control_Cliente1";
+            this.control_Cliente1.Size = new System.Drawing.Size(641, 648);
+            this.control_Cliente1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.control_Ordenes1);
+            this.ClientSize = new System.Drawing.Size(641, 648);
+            this.Controls.Add(this.control_Cliente1);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controles_Usuario.Control_Ordenes control_Ordenes1;
+        private Controles_Usuario.Control_Cliente control_Cliente1;
     }
 }

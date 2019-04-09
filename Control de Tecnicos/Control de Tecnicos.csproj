@@ -87,6 +87,30 @@
     <Compile Include="Controles Usuario\Control_Usuario.Designer.cs">
       <DependentUpon>Control_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles Usuario\FrmActivarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmActivarUsuario.Designer.cs">
+      <DependentUpon>FrmActivarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmEntregaTaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmEntregaTaller.Designer.cs">
+      <DependentUpon>FrmEntregaTaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmOrdenes.Designer.cs">
+      <DependentUpon>FrmOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmTaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmTaller.Designer.cs">
+      <DependentUpon>FrmTaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +148,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles Usuario\Control_Usuario.resx">
       <DependentUpon>Control_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmActivarUsuario.resx">
+      <DependentUpon>FrmActivarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmEntregaTaller.resx">
+      <DependentUpon>FrmEntregaTaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmOrdenes.resx">
+      <DependentUpon>FrmOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmTaller.resx">
+      <DependentUpon>FrmTaller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -21,17 +21,28 @@ namespace Control_de_Tecnicos.Controles_Usuario
         {
             InitializeComponent();
         }
+
+        public void CARGAR_TIPO_IDENTIFICACION(String VAL)
+        {
+            //CARGAR COMBO DE TIPO DOCUMENTO
+                CboTipoDocumento.DataSource = ObjServer.LlenarTabla("SELECT TipoIde_Codigo   ,TipoIde_Descripcion FROM dbo.TipoDocumento where [TipoIde_CodTipoPersona]='"+VAL+"' ORDER BY TipoIde_Descripcion"); ;
+            CboTipoDocumento.DisplayMember = "TipoIde_Descripcion";
+            CboTipoDocumento.ValueMember = "TipoIde_Codigo";
+        }
+
         async Task CARGAR_COMBOS()
         {
             try
             {
-                //CARGAR COMBO DE TIPO DOCUMENTO
-                await Task.Run(() => {
-                    CboTipoDocumento.DataSource = ObjServer.LlenarTabla("SELECT TipoIde_Codigo   ,TipoIde_Descripcion FROM dbo.TipoDocumento ORDER BY TipoIde_Descripcion"); ;
+                //CARGAR COMBO DE TIPO PERSONA
+                await Task.Run(() =>
+                {
+                    CboTipoPersona.DataSource = ObjServer.LlenarTabla("SELECT Tip_Codigo  ,Tipo_Descripcion  FROM dbo.TipoPersona ORDER BY Tipo_Descripcion desc");
                 });
-                CboTipoDocumento.DisplayMember = "TipoIde_Descripcion";
-                CboTipoDocumento.ValueMember = "TipoIde_Codigo";
+                CboTipoPersona.DisplayMember = "Tipo_Descripcion";
+                CboTipoPersona.ValueMember = "Tip_Codigo";
 
+                CARGAR_TIPO_IDENTIFICACION("N");
                 //CARGAR COMBO DE TIPO SEXO
                 await Task.Run(() =>
                 {
@@ -40,13 +51,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 CboSexo.DisplayMember = "Sex_Descripcion";
                 CboSexo.ValueMember = "Sex_Codigo";
 
-                //CARGAR COMBO DE TIPO PERSONA
-                await Task.Run(() =>
-                {
-                    CboTipoPersona.DataSource = ObjServer.LlenarTabla("SELECT Tip_Codigo  ,Tipo_Descripcion  FROM dbo.TipoPersona ORDER BY Tipo_Descripcion");
-                });
-                CboTipoPersona.DisplayMember = "Tipo_Descripcion";
-                CboTipoPersona.ValueMember = "Tip_Codigo";
+
             }
             catch (Exception EX)
             {
@@ -148,7 +153,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                                                ",[Cli_Celular]        "+
                                                ",[Cli_TelFijo]        "+
                                                ",[Cli_Contacto]       "+
-                                               ",[Cli_TelContacto])   "+
+                                               ",[Cli_TelContacto],Cli_CodEstado)   " +
                                          "VALUES "+
                                                "('{0}'"+
                                                ",'{1}'" +
@@ -161,7 +166,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                                                ",'{8}'" +
                                                ",'{9}'" +
                                                ",'{10}'" +
-                                               ",'{11}')",TxtDocumento.Text.Trim(),CboTipoDocumento.SelectedValue.ToString(),TxtNombres.Text,TxtApellidos.Text.Trim(),CboSexo.SelectedValue.ToString(),CboTipoPersona.SelectedValue.ToString(),TxtDireccion.Text.Trim(),TxtCorreo.Text.Trim(),TxtCelular.Text.Trim(),TxtFijo.Text.Trim(),TxtNombreContacto.Text.Trim(),TxtTelContacto.Text.Trim());
+                                               ",'{11}','A')",TxtDocumento.Text.Trim(),CboTipoDocumento.SelectedValue.ToString(),TxtNombres.Text,TxtApellidos.Text.Trim(),CboSexo.SelectedValue.ToString(),CboTipoPersona.SelectedValue.ToString(),TxtDireccion.Text.Trim(),TxtCorreo.Text.Trim(),TxtCelular.Text.Trim(),TxtFijo.Text.Trim(),TxtNombreContacto.Text.Trim(),TxtTelContacto.Text.Trim());
 
                         documentoC = TxtDocumento.Text;
                         ObjServer.CadnaSentencia = SQL;
@@ -318,6 +323,41 @@ namespace Control_de_Tecnicos.Controles_Usuario
         {
             ClsNumeroLetras numeroLetras = new ClsNumeroLetras();
             numeroLetras.Solo_Letras(e);
+        }
+
+        private void CboTipoPersona_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CboTipoPersona.SelectedValue.ToString()=="J")
+            {
+                //CboTipoDocumento.SelectedValue = "NIT";
+                //CboTipoDocumento.Enabled = false;
+                LblNombre.Text = "Razon social";
+                LblApellido.Text = "Sigla";
+                LblSexo.Visible = false;
+                CboSexo.Visible = false;
+                TxtApellidos.Location= new Point(45, 299);
+                LblApellido.Location = new Point(51, 275);            
+                TxtApellidos.Size= new Size(129,27);
+                TxtNombres.Size=new Size(500, 27);
+            }
+            else
+            {
+                CboTipoDocumento.SelectedValue = "CC";
+                CboTipoDocumento.Enabled = true;
+                LblNombre.Text = "Nombres";
+                LblApellido.Text = "Apellidos";
+                LblSexo.Visible = true;
+                CboSexo.Visible = true;
+                TxtApellidos.Location = new Point(317,236);
+                LblApellido.Location = new Point(322,212);
+                TxtApellidos.Size = new Size(254, 27);
+                TxtNombres.Size = new Size(254,27);
+            }
+        }
+
+        private void CboTipoPersona_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CARGAR_TIPO_IDENTIFICACION(CboTipoPersona.SelectedValue.ToString());
         }
     }
 }

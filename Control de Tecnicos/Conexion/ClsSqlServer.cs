@@ -153,8 +153,8 @@ namespace Historia_Clinica
         public void EstilosDgv(DataGridView DGV)
         {
             DGV.DefaultCellStyle.BackColor = Color.WhiteSmoke;
-            DGV.DefaultCellStyle.Font = new Font("Verdana", 11);
-            Font prFont = new Font("Verdana", 11, FontStyle.Bold);
+            DGV.DefaultCellStyle.Font = new Font("Century Gothic", 10);
+            Font prFont = new Font("Century Gothic", 10, FontStyle.Bold);
             for (int i = 0; i < DGV.Columns.Count; i++)
             {
                 DGV.Columns[i].HeaderCell.Style.Font = prFont;

@@ -1,4 +1,5 @@
-﻿using Historia_Clinica;
+﻿using Control_de_Tecnicos.Controles_Usuario;
+using Historia_Clinica;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Control_de_Tecnicos
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmOrdenes());
 
         }
     }

@@ -71,29 +71,31 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtObservacionRevision = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.DtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.LblFechaInicio = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TxtDocCliente = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnCancelarNuevo = new System.Windows.Forms.Button();
             this.TxtDocumentoOrden = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.CboServicioOrden = new System.Windows.Forms.ComboBox();
             this.DgvOrdenes = new System.Windows.Forms.DataGridView();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.GbInformacion = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.LblEstado = new System.Windows.Forms.Label();
+            this.LblNumeroOrden = new System.Windows.Forms.Button();
             this.DtFechaEntregada = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.DtFechaAgendada = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.RdbProgramada = new System.Windows.Forms.RadioButton();
             this.RdbPendiente = new System.Windows.Forms.RadioButton();
-            this.LblNumeroOrden = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTecnico)).BeginInit();
             this.Gb.SuspendLayout();
@@ -106,7 +108,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrdenes)).BeginInit();
-            this.groupBox5.SuspendLayout();
+            this.GbInformacion.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,11 +172,12 @@
             // 
             // LblNombre
             // 
-            this.LblNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(182, 17);
+            this.LblNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.LblNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblNombre.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombre.Location = new System.Drawing.Point(182, 32);
             this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(258, 63);
+            this.LblNombre.Size = new System.Drawing.Size(258, 46);
             this.LblNombre.TabIndex = 92;
             this.LblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -224,7 +227,7 @@
             this.DgvProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvProductos.RowHeadersVisible = false;
             this.DgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvProductos.Size = new System.Drawing.Size(542, 155);
+            this.DgvProductos.Size = new System.Drawing.Size(534, 155);
             this.DgvProductos.TabIndex = 96;
             this.DgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
             this.DgvProductos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgvProductos_KeyDown);
@@ -278,14 +281,15 @@
             this.DgvTecnicoColDocumento,
             this.DgvTecnicoColNombres,
             this.DgvTecnicoColCargo});
+            this.DgvTecnico.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DgvTecnico.EnableHeadersVisualStyles = false;
             this.DgvTecnico.Location = new System.Drawing.Point(12, 58);
             this.DgvTecnico.MultiSelect = false;
             this.DgvTecnico.Name = "DgvTecnico";
             this.DgvTecnico.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvTecnico.RowHeadersVisible = false;
-            this.DgvTecnico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DgvTecnico.Size = new System.Drawing.Size(608, 152);
+            this.DgvTecnico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvTecnico.Size = new System.Drawing.Size(608, 122);
             this.DgvTecnico.TabIndex = 97;
             this.DgvTecnico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgvTecnico_KeyDown);
             // 
@@ -293,6 +297,7 @@
             // 
             this.DgvTecnicoColDocumento.HeaderText = "Documento";
             this.DgvTecnicoColDocumento.Name = "DgvTecnicoColDocumento";
+            this.DgvTecnicoColDocumento.ReadOnly = true;
             this.DgvTecnicoColDocumento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.DgvTecnicoColDocumento.Width = 90;
             // 
@@ -301,6 +306,7 @@
             this.DgvTecnicoColNombres.HeaderText = "Nombres";
             this.DgvTecnicoColNombres.MaxInputLength = 10;
             this.DgvTecnicoColNombres.Name = "DgvTecnicoColNombres";
+            this.DgvTecnicoColNombres.ReadOnly = true;
             this.DgvTecnicoColNombres.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.DgvTecnicoColNombres.Width = 300;
             // 
@@ -419,7 +425,7 @@
             this.TxtAceptar1.Name = "TxtAceptar1";
             this.TxtAceptar1.Size = new System.Drawing.Size(254, 29);
             this.TxtAceptar1.TabIndex = 100;
-            this.TxtAceptar1.Text = "Aceptar";
+            this.TxtAceptar1.Text = "Guardar";
             this.TxtAceptar1.UseVisualStyleBackColor = false;
             this.TxtAceptar1.Click += new System.EventHandler(this.TxtAceptar1_Click);
             // 
@@ -445,7 +451,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(572, 25);
+            this.label15.Location = new System.Drawing.Point(454, 25);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 32);
             this.label15.TabIndex = 108;
@@ -456,7 +462,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(546, 30);
+            this.textBox3.Location = new System.Drawing.Point(523, 28);
             this.textBox3.MaxLength = 50;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(20, 27);
@@ -523,7 +529,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.TxtGarantia);
@@ -637,6 +642,20 @@
             this.label3.TabIndex = 95;
             this.label3.Text = "Observación revisión";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.ForeColor = System.Drawing.Color.Coral;
+            this.radioButton3.Location = new System.Drawing.Point(26, 194);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(100, 24);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Desarrollo";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Visible = false;
+            // 
             // DtFechaInicio
             // 
             this.DtFechaInicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -665,7 +684,7 @@
             this.groupBox3.Controls.Add(this.DgvTecnico);
             this.groupBox3.Location = new System.Drawing.Point(479, 270);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(816, 216);
+            this.groupBox3.Size = new System.Drawing.Size(816, 199);
             this.groupBox3.TabIndex = 100;
             this.groupBox3.TabStop = false;
             // 
@@ -694,6 +713,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.BtnCancelarNuevo);
             this.groupBox4.Controls.Add(this.TxtDocumentoOrden);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
@@ -701,9 +721,24 @@
             this.groupBox4.Controls.Add(this.DgvOrdenes);
             this.groupBox4.Location = new System.Drawing.Point(479, 571);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(816, 256);
+            this.groupBox4.Size = new System.Drawing.Size(777, 256);
             this.groupBox4.TabIndex = 101;
             this.groupBox4.TabStop = false;
+            // 
+            // BtnCancelarNuevo
+            // 
+            this.BtnCancelarNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BtnCancelarNuevo.FlatAppearance.BorderSize = 0;
+            this.BtnCancelarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelarNuevo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelarNuevo.ForeColor = System.Drawing.Color.White;
+            this.BtnCancelarNuevo.Location = new System.Drawing.Point(650, 40);
+            this.BtnCancelarNuevo.Name = "BtnCancelarNuevo";
+            this.BtnCancelarNuevo.Size = new System.Drawing.Size(105, 29);
+            this.BtnCancelarNuevo.TabIndex = 106;
+            this.BtnCancelarNuevo.Text = "Cancelar";
+            this.BtnCancelarNuevo.UseVisualStyleBackColor = false;
+            this.BtnCancelarNuevo.Click += new System.EventHandler(this.BtnCancelarNuevo_Click);
             // 
             // TxtDocumentoOrden
             // 
@@ -761,42 +796,80 @@
             this.DgvOrdenes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.DgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvOrdenes.EnableHeadersVisualStyles = false;
-            this.DgvOrdenes.Location = new System.Drawing.Point(12, 78);
+            this.DgvOrdenes.Location = new System.Drawing.Point(12, 84);
             this.DgvOrdenes.MultiSelect = false;
             this.DgvOrdenes.Name = "DgvOrdenes";
             this.DgvOrdenes.ReadOnly = true;
             this.DgvOrdenes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvOrdenes.RowHeadersVisible = false;
             this.DgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DgvOrdenes.Size = new System.Drawing.Size(788, 162);
+            this.DgvOrdenes.Size = new System.Drawing.Size(743, 156);
             this.DgvOrdenes.TabIndex = 97;
+            this.DgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellClick);
             // 
-            // groupBox5
+            // GbInformacion
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.GbInformacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.DtFechaEntregada);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.DtFechaAgendada);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Location = new System.Drawing.Point(479, 489);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(816, 78);
-            this.groupBox5.TabIndex = 101;
-            this.groupBox5.TabStop = false;
+            this.GbInformacion.Controls.Add(this.label19);
+            this.GbInformacion.Controls.Add(this.label13);
+            this.GbInformacion.Controls.Add(this.LblEstado);
+            this.GbInformacion.Controls.Add(this.LblNumeroOrden);
+            this.GbInformacion.Controls.Add(this.DtFechaEntregada);
+            this.GbInformacion.Controls.Add(this.label16);
+            this.GbInformacion.Controls.Add(this.DtFechaAgendada);
+            this.GbInformacion.Controls.Add(this.label14);
+            this.GbInformacion.Location = new System.Drawing.Point(479, 475);
+            this.GbInformacion.Name = "GbInformacion";
+            this.GbInformacion.Size = new System.Drawing.Size(777, 92);
+            this.GbInformacion.TabIndex = 101;
+            this.GbInformacion.TabStop = false;
+            this.GbInformacion.Visible = false;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Orange;
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(463, 43);
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(570, 13);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(187, 23);
-            this.label19.TabIndex = 109;
-            this.label19.Text = "Aqui Mostrar El estado";
+            this.label19.Size = new System.Drawing.Size(52, 17);
+            this.label19.TabIndex = 110;
+            this.label19.Text = "Estado";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(408, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 17);
+            this.label13.TabIndex = 104;
+            this.label13.Text = "Número de orden";
+            // 
+            // LblEstado
+            // 
+            this.LblEstado.BackColor = System.Drawing.Color.Orange;
+            this.LblEstado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblEstado.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstado.Location = new System.Drawing.Point(554, 35);
+            this.LblEstado.Name = "LblEstado";
+            this.LblEstado.Size = new System.Drawing.Size(217, 47);
+            this.LblEstado.TabIndex = 109;
+            this.LblEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblNumeroOrden
+            // 
+            this.LblNumeroOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LblNumeroOrden.FlatAppearance.BorderSize = 0;
+            this.LblNumeroOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LblNumeroOrden.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNumeroOrden.ForeColor = System.Drawing.Color.White;
+            this.LblNumeroOrden.Location = new System.Drawing.Point(407, 33);
+            this.LblNumeroOrden.Name = "LblNumeroOrden";
+            this.LblNumeroOrden.Size = new System.Drawing.Size(129, 47);
+            this.LblNumeroOrden.TabIndex = 103;
+            this.LblNumeroOrden.UseVisualStyleBackColor = false;
             // 
             // DtFechaEntregada
             // 
@@ -838,8 +911,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Controls.Add(this.LblNumeroOrden);
+            this.groupBox7.Controls.Add(this.radioButton3);
             this.groupBox7.Controls.Add(this.RdbProgramada);
             this.groupBox7.Controls.Add(this.RdbPendiente);
             this.groupBox7.Controls.Add(this.LblFechaInicio);
@@ -849,20 +921,6 @@
             this.groupBox7.Size = new System.Drawing.Size(172, 233);
             this.groupBox7.TabIndex = 110;
             this.groupBox7.TabStop = false;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.Coral;
-            this.radioButton3.Location = new System.Drawing.Point(319, 48);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(100, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Desarrollo";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Visible = false;
             // 
             // RdbProgramada
             // 
@@ -892,37 +950,13 @@
             this.RdbPendiente.Text = "Pendiente";
             this.RdbPendiente.UseVisualStyleBackColor = true;
             // 
-            // LblNumeroOrden
-            // 
-            this.LblNumeroOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.LblNumeroOrden.FlatAppearance.BorderSize = 0;
-            this.LblNumeroOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LblNumeroOrden.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumeroOrden.ForeColor = System.Drawing.Color.White;
-            this.LblNumeroOrden.Location = new System.Drawing.Point(26, 180);
-            this.LblNumeroOrden.Name = "LblNumeroOrden";
-            this.LblNumeroOrden.Size = new System.Drawing.Size(129, 47);
-            this.LblNumeroOrden.TabIndex = 103;
-            this.LblNumeroOrden.Text = "B";
-            this.LblNumeroOrden.UseVisualStyleBackColor = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(27, 160);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 17);
-            this.label13.TabIndex = 104;
-            this.label13.Text = "Número de orden";
-            // 
             // Control_Ordenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.GbInformacion);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -949,8 +983,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrdenes)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.GbInformacion.ResumeLayout(false);
+            this.GbInformacion.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
@@ -988,7 +1022,7 @@
         internal System.Windows.Forms.ComboBox CboServicioOrden;
         private System.Windows.Forms.DateTimePicker DtFechaInicio;
         internal System.Windows.Forms.Label LblFechaInicio;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox GbInformacion;
         private System.Windows.Forms.DateTimePicker DtFechaEntregada;
         internal System.Windows.Forms.Label label16;
         private System.Windows.Forms.DateTimePicker DtFechaAgendada;
@@ -1006,7 +1040,7 @@
         private System.Windows.Forms.NumericUpDown TxtValor;
         internal System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown TxtGarantia;
-        internal System.Windows.Forms.Label label19;
+        internal System.Windows.Forms.Label LblEstado;
         private System.Windows.Forms.NumericUpDown TxtNunFactura;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button2;
@@ -1019,10 +1053,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvProductosColDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvProductosColCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvProductosColCantidadRealizada;
+        internal System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button LblNumeroOrden;
+        internal System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvTecnicoColDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgvTecnicoColNombres;
         private System.Windows.Forms.DataGridViewComboBoxColumn DgvTecnicoColCargo;
-        internal System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button LblNumeroOrden;
+        private System.Windows.Forms.Button BtnCancelarNuevo;
     }
 }

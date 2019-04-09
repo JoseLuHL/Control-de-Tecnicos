@@ -213,7 +213,6 @@ namespace Historia_Clinica
             }
             catch (System.IO.FileNotFoundException ex)
             {
-
                 throw;
             }
             for (int i = 3; i < ColPK + 3; i++)

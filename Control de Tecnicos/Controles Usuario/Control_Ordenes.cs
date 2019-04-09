@@ -15,13 +15,13 @@ namespace Control_de_Tecnicos.Controles_Usuario
 {
     public partial class Control_Ordenes : UserControl
     {
+        ClsSqlServer ObjServer = new ClsSqlServer();
+        string codigoProducto;
+        Boolean AGREGAR_MODIFICAR = true; //CUANDO ES TRUE SE VA A INSERTAR UNA NUEVA ORDER Y FALSO ACTUALIZAR
         public Control_Ordenes()
         {
             InitializeComponent();
         }
-
-        ClsSqlServer ObjServer = new ClsSqlServer();
-        string codigoProducto;
 
         async Task CARGAR_COMBOS()
         {
@@ -66,7 +66,9 @@ namespace Control_de_Tecnicos.Controles_Usuario
             TxtDocCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
             TxtDocCliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
             CargarOrdenes();
-
+            ObjServer.EstilosDgv(DgvProductos);
+            ObjServer.EstilosDgv(DgvTecnico);
+            DgvOrdenes.ClearSelection();
         }
 
         private void DgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -99,14 +101,13 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 string nombre = tabla.Rows[0]["Cli_Nombre"].ToString();
                 string apellido = tabla.Rows[0]["Cli_Apellido"].ToString();
                 string celular = tabla.Rows[0]["Cli_Celular"].ToString();
-                LblNombre.BackColor = Color.Green;
-                LblNombre.Text = $"{nombre} {apellido} {"Celular:"} {celular}";
+                LblNombre.Text = $"{nombre} {apellido}{"\n"}{"Celular:"} {celular}";
             }
             else
             {
                 MessageBox.Show("Sin resultado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LblNombre.Text = "";
-                LblNombre.BackColor = Color.WhiteSmoke;
+                //LblNombre.BackColor = Color.WhiteSmoke;
             }
             TxtDocumento.Focus();
             TxtDocumento.SelectAll();
@@ -122,7 +123,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
             if (LblNombre.Text!="")
             {
                 LblNombre.Text = "";
-                LblNombre.BackColor = Color.WhiteSmoke;
+                //LblNombre.BackColor = Color.WhiteSmoke;
             }
         }
 
@@ -376,6 +377,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                             ",[Ord_FechaEntrega]        " +
                             ",[Ord_Estado]              " +
                             "FROM[dbo].[Orden] ORDER BY Ord_Numero DESC";
+
             tabla = ObjServer.LlenarTabla(sql);
             int x = 0;
             int col = 0;
@@ -384,10 +386,37 @@ namespace Control_de_Tecnicos.Controles_Usuario
             DgvOrdenes.Rows.Add("");
             DgvOrdenes.RowCount = 4;
             DgvOrdenes.Columns[col].Width = 60;
+            
             foreach (DataRow item in tabla.Rows)
-            {              
+            {
+                int ESTADO = Convert.ToInt32(item["Ord_Estado"]);
                 DgvOrdenes.Rows[fila].Cells[col].Value = item["Ord_Numero"].ToString();
                 DgvOrdenes.Rows[fila].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                Color color;
+                
+                switch (ESTADO)
+                {
+                    case 1:
+                        color = Color.CornflowerBlue;
+                        break;
+                    case 2:
+                        color = Color.SeaGreen;
+                        break;
+                    case 3:
+                        color = Color.Yellow;
+                        break;
+                    case 4:
+                        color = Color.Green;
+                        break;
+
+                    default:
+                        color = Color.Red;
+                        break;
+                }
+
+                DgvOrdenes.Rows[fila].Cells[col].Style.BackColor = color;
+
                 x++;
                 fila++;
 
@@ -405,7 +434,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
 
         }
 
-        private void TxtAceptar1_Click(object sender, EventArgs e)
+        public void GUARDAR_ORDEN()
         {
             if (LblNombre.Text == "")
             {
@@ -428,12 +457,12 @@ namespace Control_de_Tecnicos.Controles_Usuario
                     SqlCommand comman = cnn.CreateCommand();
                     comman.Transaction = SQLtrans;
                     string sql = "";
-                    
+
                     #region PARA OBTENER EL NUMER DE FACTURA
                     sql = "SELECT [_NunOrden] FROM [dbo].[NumeroOrden]";
                     tabla = new DataTable();
                     tabla = ObjServer.LlenarTabla(sql);
-                    
+
                     if (tabla.Rows.Count <= 0)
                     {
                         NumeroOrden = 1;
@@ -445,7 +474,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                     {
                         NumeroOrden = Convert.ToInt32(tabla.Rows[0]["_NunOrden"].ToString()) + 1;
                         //int numero = NumeroOrden + 1;
-                        sql = string.Format("UPDATE [dbo].[NumeroOrden] SET [_NunOrden] = {0}", NumeroOrden); 
+                        sql = string.Format("UPDATE [dbo].[NumeroOrden] SET [_NunOrden] = {0}", NumeroOrden);
                         ObjServer.CadnaSentencia = sql;
                         ObjServer.Sentencia();
                     }
@@ -458,7 +487,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                         fechaNull = DtFechaInicio.Text;
                         estado = 2;
                     }
-                        
+
 
 
 
@@ -468,7 +497,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                                   "Ord_FechaInicio, Ord_ObsResultadoRevision, Ord_Factura,      " +
                                   "Ord_Valor, Ord_Garantia, Ord_ObsSalida, Ord_FechaTerminacion," +
                                   "Ord_FechaEntrega, Ord_Estado)                                " +
-                                  "VALUES({10},GETDATE(),CONVERT (time,GETDATE()),{0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},'{9}',GETDATE(), GETDATE(),{11})", CboServicio.SelectedValue, TxtObservacion.Text, "123", TxtDocumento.Text, fechaNull, TxtObservacionRevision.Text, TxtNunFactura.Text, TxtValor.Value, TxtGarantia.Text, TxtObservacionSalida.Text, NumeroOrden,estado);
+                                  "VALUES({10},GETDATE(),CONVERT (time,GETDATE()),{0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},'{9}',GETDATE(), GETDATE(),{11})", CboServicio.SelectedValue, TxtObservacion.Text, "123", TxtDocumento.Text, fechaNull, TxtObservacionRevision.Text, TxtNunFactura.Text, TxtValor.Value, TxtGarantia.Text, TxtObservacionSalida.Text, NumeroOrden, estado);
 
                     comman.CommandText = sql;
                     comman.ExecuteNonQuery();
@@ -515,7 +544,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                         //ObjServer.CadnaSentencia = sql;
                         //ObjServer.Sentencia();
                     }
-                    
+
                     SQLtrans.Commit();
                     MessageBox.Show("Registro guardado", "Finalizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -529,15 +558,28 @@ namespace Control_de_Tecnicos.Controles_Usuario
                     ObjServer.Sentencia();
 
                     MessageBox.Show("La operación no puedo completarse debido a: \n 1 - No dispone de una conexión  \n 2 - Ya se ha registrado este documento  \n 3 - La información ingresada no corresponde a la requerida  \n Vuelva a intentarlo!!! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //MessageBox.Show(ex.ToString());
                     try
                     { SQLtrans.Rollback(); }
                     catch (Exception exRollback)
                     {
-                        //Console.WriteLine(exRollback.Message); 
+                        //Console.WriteLine(exRollback.Message);
                     }
                 }
             }
+        }
+
+        private void TxtAceptar1_Click(object sender, EventArgs e)
+        {
+            if (AGREGAR_MODIFICAR)
+                GUARDAR_ORDEN();
+            else
+                ;
+                //JJD
+        }
+
+        public void ACTUALIZAR_ORDER(int ESTADO)
+        {
+
         }
 
         private void RdbProgramada_CheckedChanged(object sender, EventArgs e)
@@ -554,26 +596,26 @@ namespace Control_de_Tecnicos.Controles_Usuario
             }
         }
 
-        public void CARGAR_ORDEN(int NumeroOrden)
+        public void CARGAR_ORDEN_CLIENTE(int NumeroOrden)
         {
             DataTable table = null;
-            string sql = string.Format("SELECT [Ord_Numero]           " +
-                         ",[Ord_Fecha]                  " +
-                         ",[Ord_Hora]                   " +
-                         ",[Ord_CodServicio]            " +
-                         ",[Ord_ObsEntrada]             " +
-                         ",[Ord_DocUsuario]             " +
-                         ",[Ord_DocCliente]             " +
-                         ",[Ord_FechaInicio]            " +
-                         ",[Ord_ObsResultadoRevision]   " +
-                         ",[Ord_Factura]                " +
-                         ",[Ord_Valor]                  " +
-                         ",[Ord_Garantia]               " +
-                         ",[Ord_ObsSalida]              " +
-                         ",[Ord_FechaTerminacion]       " +
-                         ",[Ord_FechaEntrega]           " +
-                         ",[Ord_Estado]                 " +
-                         "FROM[dbo].[Orden] WHERE Ord_Numero={0}",NumeroOrden);
+            string sql = string.Format("SELECT	dbo.Orden.Ord_Numero, dbo.Orden.Ord_Fecha,  "+
+		                                "dbo.Orden.Ord_Hora, dbo.Orden.Ord_CodServicio,     "+
+		                                "dbo.Orden.Ord_ObsEntrada, dbo.Orden.Ord_DocUsuario,"+
+		                                "dbo.Orden.Ord_DocCliente,                          "+
+		                                "dbo.Orden.Ord_FechaInicio,                         "+
+		                                "dbo.Orden.Ord_ObsResultadoRevision,                "+
+		                                "dbo.Orden.Ord_Factura, dbo.Orden.Ord_Valor,        "+
+		                                "dbo.Orden.Ord_Garantia, dbo.Orden.Ord_ObsSalida,   "+
+		                                "dbo.Orden.Ord_FechaTerminacion,                    "+
+		                                "dbo.Orden.Ord_FechaEntrega, dbo.Orden.Ord_Estado,  "+
+		                                "dbo.EstadoOrden.EstOrd_Descripcion,                "+
+                                        "dbo.Cliente.Cli_Nombre, dbo.Cliente.Cli_Apellido, dbo.Cliente.Cli_Celular "+
+                                        "FROM   dbo.Orden INNER JOIN                        " +
+		                                "dbo.EstadoOrden ON dbo.Orden.Ord_Estado =          "+
+                                        "dbo.EstadoOrden.EstOrd_Codigo INNER JOIN "+
+                                        "dbo.Cliente ON dbo.Orden.Ord_DocCliente = dbo.Cliente.Cli_Documento "+
+                                        "WHERE Ord_Numero={0}", NumeroOrden);
 
             table = new DataTable();
             table = ObjServer.LlenarTabla(sql);
@@ -583,6 +625,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 MessageBox.Show("No se han encontrado registros", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             foreach (DataRow item in table.Rows)
             {
                 LblNumeroOrden.Text = item["Ord_Numero"].ToString();
@@ -595,16 +638,48 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 TxtObservacionSalida.Text = item["Ord_ObsSalida"].ToString();
                 DtFechaEntregada.Text = item["Ord_FechaEntrega"].ToString();
                 DtFechaAgendada.Text = item["Ord_Fecha"].ToString();
+                TxtObservacion.Text= item["Ord_ObsEntrada"].ToString();
+                CboServicio.SelectedValue= item["Ord_CodServicio"].ToString();
+                LblEstado.Text= item["EstOrd_Descripcion"].ToString();
+
+                string nombre = item["Cli_Nombre"].ToString();
+                string apellido = item["Cli_Apellido"].ToString();
+                string celular = item["Cli_Celular"].ToString();
+
+                LblNombre.Text = $"{nombre} {apellido}{"\n"}{"Celular:"} {celular}";
+
+                GbInformacion.Visible = true;
+    
+                switch (LblEstado.Text)
+                {
+                    case "PENDIENTE":
+                        LblEstado.BackColor = Color.CornflowerBlue;
+                        RdbPendiente.Checked = true;
+                        break;
+                    case "PROGRAMADA":
+                        LblEstado.BackColor = Color.SeaGreen;
+                        RdbProgramada.Checked = true;
+                        break;
+                    case "DESARROLLO":
+                        LblEstado.BackColor = Color.Yellow;
+                        break;
+                    case "FINALIZADA":
+                        LblEstado.BackColor = Color.Green;
+                        break;
+                    default:
+                        LblEstado.BackColor = Color.Red;
+                        break;
+                }
             }
 
-
-            sql = "SELECT dbo.Producto.Prod_Codigo, " +
-                    "dbo.Producto.Prod_Descripcion,OrdDet_Cantidad "+
+            sql = string.Format("SELECT dbo.Producto.Prod_Codigo, " +
+                    "dbo.Producto.Prod_Descripcion,OrdDet_Cantidad,OrdDet_Numero " +
                     "FROM dbo.Producto INNER JOIN  " +
                     "dbo.OrdenDetalle ON dbo.Producto.Prod_Codigo = "+
-                    "dbo.OrdenDetalle.OrdDet_CodProducto";
+                    "dbo.OrdenDetalle.OrdDet_CodProducto WHERE OrdDet_Numero= {0}", NumeroOrden);
             table = new DataTable();
             table = ObjServer.LlenarTabla(sql);
+            DgvProductos.Rows.Clear();
             foreach (DataRow item in table.Rows)
             {
                 string cod = item["Prod_Codigo"].ToString();
@@ -613,22 +688,72 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 DgvProductos.Rows.Add(cod, des, cant);
             }
 
-            sql = "SELECT dbo.Usuario.Us_Documento, " +
-                "dbo.Usuario.Us_Nombre, " +
-                "dbo.UsuarioOrden.UsuOrden_CodTipoAsignado" +
-                "FROM dbo.Usuario INNER JOIN dbo.UsuarioOrden " +
-                "ON dbo.Usuario.Us_Documento = dbo.UsuarioOrden.UsuOrden_DocUsu";
-
+            sql = string.Format("SELECT dbo.Usuario.Us_Documento,           " +
+                    "dbo.Usuario.Us_Nombre, UsuOrden_NumOrden,    " +
+                    "dbo.UsuarioOrden.UsuOrden_CodTipoAsignado    " +
+                    "FROM dbo.Usuario INNER JOIN dbo.UsuarioOrden " +
+                    "ON dbo.Usuario.Us_Documento = dbo.UsuarioOrden.UsuOrden_DocUsu WHERE UsuOrden_NumOrden= {0}", NumeroOrden);
             table = new DataTable();
             table = ObjServer.LlenarTabla(sql);
+            DgvTecnico.Rows.Clear();
             foreach (DataRow item in table.Rows)
             {
                 string docum = item["Us_Documento"].ToString();
                 string nombre = item["Us_Nombre"].ToString();
-                string cargo = item["UsuOrden_CodTipoAsignado"].ToString();
-                DgvTecnico.Rows.Add(docum,nombre,cargo);
+                int cargo = Convert.ToInt32(item["UsuOrden_CodTipoAsignado"]);
+                DgvTecnico.Rows.Add(docum, nombre,cargo);
+            }
+            DgvProductos.ClearSelection();
+            DgvTecnico.ClearSelection();
+        }
+
+        private void DgvOrdenes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if (DgvOrdenes.Rows.Count > 0)
+                {
+                    if (DgvOrdenes.CurrentCell.Value!=null)
+                    {
+                        int NumeroOrden = Convert.ToInt32(DgvOrdenes.CurrentCell.Value);
+                        CARGAR_ORDEN_CLIENTE(NumeroOrden);
+                        AGREGAR_MODIFICAR = false;
+                    }
+                }
             }
         }
+
+        public void LIMPIAR_CONTROLES()
+        {
+            DgvOrdenes.ClearSelection();
+            DgvTecnico.Rows.Clear();
+            DgvProductos.Rows.Clear();
+
+            LblNumeroOrden.Text = "";
+            TxtDocumento.Clear();
+            TxtObservacionRevision.Clear();
+            TxtNunFactura.Value = 0;
+            TxtValor.Value = 0;
+            TxtGarantia.Text = "";
+            TxtObservacionSalida.Text = "";
+            //LblNombre
+            //DtFechaEntregada.Text = item["Ord_FechaEntrega"].ToString();
+            //DtFechaAgendada.Text = item["Ord_Fecha"].ToString();
+            //CboServicio.SelectedValue = item["Ord_CodServicio"].ToString();
+            TxtObservacion.Text = "";
+            LblEstado.Text = "";
+            GbInformacion.Visible = false;
+        }
+
+
+        private void BtnCancelarNuevo_Click(object sender, EventArgs e)
+        {
+            LIMPIAR_CONTROLES();
+            AGREGAR_MODIFICAR = true;
+
+        }
+
+
     }
 }
 //public void GUARDAR_DATOS()
