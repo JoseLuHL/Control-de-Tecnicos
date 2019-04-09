@@ -49,7 +49,7 @@
             this.groupBox4.Controls.Add(this.DgvOrdenes);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(680, 448);
+            this.groupBox4.Size = new System.Drawing.Size(795, 423);
             this.groupBox4.TabIndex = 102;
             this.groupBox4.TabStop = false;
             // 
@@ -116,7 +116,7 @@
             this.DgvOrdenes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvOrdenes.RowHeadersVisible = false;
             this.DgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DgvOrdenes.Size = new System.Drawing.Size(651, 343);
+            this.DgvOrdenes.Size = new System.Drawing.Size(766, 318);
             this.DgvOrdenes.TabIndex = 97;
             this.DgvOrdenes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellDoubleClick);
             this.DgvOrdenes.DoubleClick += new System.EventHandler(this.DgvOrdenes_DoubleClick);
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 485);
+            this.ClientSize = new System.Drawing.Size(819, 447);
             this.Controls.Add(this.groupBox4);
             this.Name = "FrmOrdenes";
             this.Load += new System.EventHandler(this.FrmOrdenes_Load);

@@ -105,23 +105,41 @@
     <Compile Include="Controles Usuario\FrmOrdenes.Designer.cs">
       <DependentUpon>FrmOrdenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles Usuario\FrmProductoInstalacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmProductoInstalacion.Designer.cs">
+      <DependentUpon>FrmProductoInstalacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmProductoTaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles Usuario\FrmProductoTaller.Designer.cs">
+      <DependentUpon>FrmProductoTaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles Usuario\FrmTaller.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controles Usuario\FrmTaller.Designer.cs">
       <DependentUpon>FrmTaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controles Usuario\FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Controles Usuario\FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionarSistema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestionarSistema.designer.cs">
       <DependentUpon>FrmGestionarSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInicio_Presentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInicio_Presentacion.Designer.cs">
+      <DependentUpon>FrmInicio_Presentacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Principal.cs">
       <SubType>Form</SubType>
@@ -158,14 +176,23 @@
     <EmbeddedResource Include="Controles Usuario\FrmOrdenes.resx">
       <DependentUpon>FrmOrdenes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmProductoInstalacion.resx">
+      <DependentUpon>FrmProductoInstalacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles Usuario\FrmProductoTaller.resx">
+      <DependentUpon>FrmProductoTaller.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles Usuario\FrmTaller.resx">
       <DependentUpon>FrmTaller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Controles Usuario\FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionarSistema.resx">
       <DependentUpon>FrmGestionarSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInicio_Presentacion.resx">
+      <DependentUpon>FrmInicio_Presentacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Principal.resx">
       <DependentUpon>Frm_Principal.cs</DependentUpon>

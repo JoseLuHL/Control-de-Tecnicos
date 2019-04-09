@@ -55,7 +55,8 @@ namespace Control_de_Tecnicos.Controles_Usuario
 
         private void FrmActivarUsuario_Load(object sender, EventArgs e)
         {
-
+            RdbActivar.Checked = false;
+            RdbDesactivar.Checked = false;
         }
 
         private void TxtDocumento_KeyDown(object sender, KeyEventArgs e)

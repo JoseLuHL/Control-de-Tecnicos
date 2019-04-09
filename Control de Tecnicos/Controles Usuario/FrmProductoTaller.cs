@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Control_de_Tecnicos
+namespace Control_de_Tecnicos.Controles_Usuario
 {
-    public partial class Form1 : Form
+    public partial class FrmProductoTaller : Form
     {
-        public Form1()
+        public FrmProductoTaller()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Control_de_Tecnicos
 {
-    partial class Form1
+    partial class FrmCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -39,14 +39,16 @@
             this.control_Cliente1.Name = "control_Cliente1";
             this.control_Cliente1.Size = new System.Drawing.Size(641, 648);
             this.control_Cliente1.TabIndex = 0;
+            this.control_Cliente1.Load += new System.EventHandler(this.control_Cliente1_Load);
             // 
-            // Form1
+            // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 648);
             this.Controls.Add(this.control_Cliente1);
-            this.Name = "Form1";
+            this.Name = "FrmCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
         }

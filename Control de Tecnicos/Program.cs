@@ -19,7 +19,7 @@ namespace Control_de_Tecnicos
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmOrdenes());
+            Application.Run(new FrmInicio_Presentacion());
 
         }
     }

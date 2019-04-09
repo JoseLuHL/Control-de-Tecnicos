@@ -353,6 +353,8 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 TxtApellidos.Size = new Size(254, 27);
                 TxtNombres.Size = new Size(254,27);
             }
+            TxtDocumento.Focus();
+            TxtDocumento.SelectAll();
         }
 
         private void CboTipoPersona_SelectionChangeCommitted(object sender, EventArgs e)

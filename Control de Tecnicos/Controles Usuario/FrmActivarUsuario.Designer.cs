@@ -60,14 +60,14 @@
             this.TxtDocumento.MaxLength = 10;
             this.TxtDocumento.Name = "TxtDocumento";
             this.TxtDocumento.Size = new System.Drawing.Size(254, 27);
-            this.TxtDocumento.TabIndex = 50;
+            this.TxtDocumento.TabIndex = 0;
             this.TxtDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDocumento_KeyDown);
             // 
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
             this.LblNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(14, 96);
+            this.LblNombre.Location = new System.Drawing.Point(14, 80);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(79, 21);
             this.LblNombre.TabIndex = 53;
@@ -80,10 +80,10 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
-            this.BtnGuardar.Location = new System.Drawing.Point(110, 12);
+            this.BtnGuardar.Location = new System.Drawing.Point(86, 17);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(254, 29);
-            this.BtnGuardar.TabIndex = 54;
+            this.BtnGuardar.TabIndex = 3;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -94,8 +94,8 @@
             this.groupBox7.Controls.Add(this.RdbDesactivar);
             this.groupBox7.Location = new System.Drawing.Point(317, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(152, 156);
-            this.groupBox7.TabIndex = 111;
+            this.groupBox7.Size = new System.Drawing.Size(124, 117);
+            this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             // 
             // RdbActivar
@@ -103,7 +103,7 @@
             this.RdbActivar.AutoSize = true;
             this.RdbActivar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdbActivar.ForeColor = System.Drawing.Color.SeaGreen;
-            this.RdbActivar.Location = new System.Drawing.Point(24, 33);
+            this.RdbActivar.Location = new System.Drawing.Point(6, 31);
             this.RdbActivar.Name = "RdbActivar";
             this.RdbActivar.Size = new System.Drawing.Size(81, 24);
             this.RdbActivar.TabIndex = 1;
@@ -115,10 +115,10 @@
             this.RdbDesactivar.AutoSize = true;
             this.RdbDesactivar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdbDesactivar.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.RdbDesactivar.Location = new System.Drawing.Point(24, 63);
+            this.RdbDesactivar.Location = new System.Drawing.Point(6, 61);
             this.RdbDesactivar.Name = "RdbDesactivar";
             this.RdbDesactivar.Size = new System.Drawing.Size(107, 24);
-            this.RdbDesactivar.TabIndex = 0;
+            this.RdbDesactivar.TabIndex = 2;
             this.RdbDesactivar.TabStop = true;
             this.RdbDesactivar.Text = "Desactivar";
             this.RdbDesactivar.UseVisualStyleBackColor = true;
@@ -130,28 +130,29 @@
             this.groupBox1.Controls.Add(this.LblNombre);
             this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(299, 156);
-            this.groupBox1.TabIndex = 112;
+            this.groupBox1.Size = new System.Drawing.Size(299, 117);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.BtnGuardar);
-            this.groupBox2.Location = new System.Drawing.Point(12, 164);
+            this.groupBox2.Location = new System.Drawing.Point(12, 123);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(457, 47);
-            this.groupBox2.TabIndex = 112;
+            this.groupBox2.Size = new System.Drawing.Size(429, 56);
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
             // FrmActivarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 221);
+            this.ClientSize = new System.Drawing.Size(450, 184);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox7);
             this.Name = "FrmActivarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmActivarUsuario_Load);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();

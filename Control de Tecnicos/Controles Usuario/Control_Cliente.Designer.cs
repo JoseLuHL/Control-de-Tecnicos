@@ -125,7 +125,7 @@
             this.Panel1.Controls.Add(this.DgvClientes);
             this.Panel1.Location = new System.Drawing.Point(546, 588);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(90, 45);
+            this.Panel1.Size = new System.Drawing.Size(128, 71);
             this.Panel1.TabIndex = 58;
             this.Panel1.Visible = false;
             // 
@@ -188,7 +188,7 @@
             this.DgvClientes.ReadOnly = true;
             this.DgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvClientes.Size = new System.Drawing.Size(90, 9);
+            this.DgvClientes.Size = new System.Drawing.Size(128, 35);
             this.DgvClientes.TabIndex = 36;
             this.DgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellClick);
             // 
@@ -378,7 +378,7 @@
             this.TxtCorreo.Location = new System.Drawing.Point(45, 372);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(254, 27);
-            this.TxtCorreo.TabIndex = 46;
+            this.TxtCorreo.TabIndex = 8;
             // 
             // TxtDireccion
             // 
@@ -388,7 +388,7 @@
             this.TxtDireccion.Multiline = true;
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(254, 90);
-            this.TxtDireccion.TabIndex = 47;
+            this.TxtDireccion.TabIndex = 9;
             // 
             // TxtCelular
             // 
@@ -398,7 +398,7 @@
             this.TxtCelular.MaxLength = 10;
             this.TxtCelular.Name = "TxtCelular";
             this.TxtCelular.Size = new System.Drawing.Size(129, 27);
-            this.TxtCelular.TabIndex = 44;
+            this.TxtCelular.TabIndex = 6;
             this.TxtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // TxtFijo
@@ -409,7 +409,7 @@
             this.TxtFijo.MaxLength = 10;
             this.TxtFijo.Name = "TxtFijo";
             this.TxtFijo.Size = new System.Drawing.Size(119, 27);
-            this.TxtFijo.TabIndex = 45;
+            this.TxtFijo.TabIndex = 7;
             this.TxtFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // CboTipoDocumento
@@ -422,7 +422,7 @@
             this.CboTipoDocumento.Location = new System.Drawing.Point(45, 161);
             this.CboTipoDocumento.Name = "CboTipoDocumento";
             this.CboTipoDocumento.Size = new System.Drawing.Size(254, 29);
-            this.CboTipoDocumento.TabIndex = 41;
+            this.CboTipoDocumento.TabIndex = 1;
             // 
             // TxtNombres
             // 
@@ -433,7 +433,7 @@
             this.TxtNombres.MaxLength = 50;
             this.TxtNombres.Name = "TxtNombres";
             this.TxtNombres.Size = new System.Drawing.Size(254, 27);
-            this.TxtNombres.TabIndex = 43;
+            this.TxtNombres.TabIndex = 3;
             this.TxtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombreContacto_KeyPress);
             // 
             // TxtDocumento
@@ -444,7 +444,7 @@
             this.TxtDocumento.MaxLength = 10;
             this.TxtDocumento.Name = "TxtDocumento";
             this.TxtDocumento.Size = new System.Drawing.Size(224, 27);
-            this.TxtDocumento.TabIndex = 42;
+            this.TxtDocumento.TabIndex = 2;
             this.TxtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // BtnGuardar
@@ -481,7 +481,7 @@
             this.TxtApellidos.MaxLength = 50;
             this.TxtApellidos.Name = "TxtApellidos";
             this.TxtApellidos.Size = new System.Drawing.Size(254, 27);
-            this.TxtApellidos.TabIndex = 62;
+            this.TxtApellidos.TabIndex = 4;
             this.TxtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombreContacto_KeyPress);
             // 
             // LblSexo
@@ -504,7 +504,7 @@
             this.CboSexo.Location = new System.Drawing.Point(45, 299);
             this.CboSexo.Name = "CboSexo";
             this.CboSexo.Size = new System.Drawing.Size(254, 29);
-            this.CboSexo.TabIndex = 66;
+            this.CboSexo.TabIndex = 5;
             // 
             // label15
             // 
@@ -525,7 +525,7 @@
             this.TxtNombreContacto.MaxLength = 80;
             this.TxtNombreContacto.Name = "TxtNombreContacto";
             this.TxtNombreContacto.Size = new System.Drawing.Size(254, 27);
-            this.TxtNombreContacto.TabIndex = 67;
+            this.TxtNombreContacto.TabIndex = 10;
             this.TxtNombreContacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombreContacto_KeyPress);
             // 
             // label16
@@ -546,7 +546,7 @@
             this.TxtTelContacto.MaxLength = 10;
             this.TxtTelContacto.Name = "TxtTelContacto";
             this.TxtTelContacto.Size = new System.Drawing.Size(148, 27);
-            this.TxtTelContacto.TabIndex = 69;
+            this.TxtTelContacto.TabIndex = 11;
             this.TxtTelContacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // CboTipoPersona
@@ -559,7 +559,7 @@
             this.CboTipoPersona.Location = new System.Drawing.Point(43, 97);
             this.CboTipoPersona.Name = "CboTipoPersona";
             this.CboTipoPersona.Size = new System.Drawing.Size(254, 29);
-            this.CboTipoPersona.TabIndex = 72;
+            this.CboTipoPersona.TabIndex = 0;
             this.CboTipoPersona.SelectedIndexChanged += new System.EventHandler(this.CboTipoPersona_SelectedIndexChanged);
             this.CboTipoPersona.SelectionChangeCommitted += new System.EventHandler(this.CboTipoPersona_SelectionChangeCommitted);
             // 
@@ -609,7 +609,7 @@
             this.Controls.Add(this.TxtDocumento);
             this.Controls.Add(this.BtnGuardar);
             this.Name = "Control_Cliente";
-            this.Size = new System.Drawing.Size(585, 605);
+            this.Size = new System.Drawing.Size(568, 588);
             this.Load += new System.EventHandler(this.Control_Cliente_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();

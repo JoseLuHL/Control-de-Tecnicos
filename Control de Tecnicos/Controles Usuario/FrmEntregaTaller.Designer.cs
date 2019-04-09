@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TxtAceptar1 = new System.Windows.Forms.Button();
             this.TxtNunFactura = new System.Windows.Forms.NumericUpDown();
             this.TxtValor = new System.Windows.Forms.NumericUpDown();
@@ -40,11 +41,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNunFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtValor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -66,6 +66,15 @@
             this.groupBox3.Size = new System.Drawing.Size(566, 455);
             this.groupBox3.TabIndex = 102;
             this.groupBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(366, 289);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(169, 147);
+            this.pictureBox1.TabIndex = 121;
+            this.pictureBox1.TabStop = false;
             // 
             // TxtAceptar1
             // 
@@ -189,15 +198,6 @@
             this.label7.TabIndex = 105;
             this.label7.Text = "Diagnostico";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(366, 289);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 147);
-            this.pictureBox1.TabIndex = 121;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmEntregaTaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,11 +205,12 @@
             this.ClientSize = new System.Drawing.Size(609, 490);
             this.Controls.Add(this.groupBox3);
             this.Name = "FrmEntregaTaller";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNunFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtValor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
