@@ -75,5 +75,12 @@ namespace Control_de_Tecnicos
             FrmGestionarSistema f = new FrmGestionarSistema();
             f.ShowDialog();
         }
+
+        private void ClienteEditar_Click(object sender, EventArgs e)
+        {
+            FrmCliente f = new FrmCliente();
+            //f.
+            f.ShowDialog();
+        }
     }
 }

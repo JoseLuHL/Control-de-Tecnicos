@@ -40,6 +40,7 @@
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.Producto = new System.Windows.Forms.ToolStripMenuItem();
             this.Usuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.GestionSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.operaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tallar = new System.Windows.Forms.ToolStripMenuItem();
             this.generarOrdenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.Mantenimiento = new System.Windows.Forms.ToolStripMenuItem();
             this.Reparacion = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GestionSistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClienteEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,8 +80,8 @@
             this.Usuario,
             this.GestionSistema});
             this.craciónToolStripMenuItem.Name = "craciónToolStripMenuItem";
-            this.craciónToolStripMenuItem.Size = new System.Drawing.Size(120, 25);
-            this.craciónToolStripMenuItem.Text = "Cración         ";
+            this.craciónToolStripMenuItem.Size = new System.Drawing.Size(130, 25);
+            this.craciónToolStripMenuItem.Text = "Creación         ";
             this.craciónToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Articulo
@@ -111,6 +112,7 @@
             // 
             this.Cliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClienteNuevo,
+            this.ClienteEditar,
             this.ClienteInactivar});
             this.Cliente.Name = "Cliente";
             this.Cliente.Size = new System.Drawing.Size(230, 26);
@@ -119,14 +121,14 @@
             // ClienteNuevo
             // 
             this.ClienteNuevo.Name = "ClienteNuevo";
-            this.ClienteNuevo.Size = new System.Drawing.Size(152, 26);
+            this.ClienteNuevo.Size = new System.Drawing.Size(180, 26);
             this.ClienteNuevo.Text = "Nuevo";
             this.ClienteNuevo.Click += new System.EventHandler(this.ClienteNuevo_Click);
             // 
             // ClienteInactivar
             // 
             this.ClienteInactivar.Name = "ClienteInactivar";
-            this.ClienteInactivar.Size = new System.Drawing.Size(152, 26);
+            this.ClienteInactivar.Size = new System.Drawing.Size(180, 26);
             this.ClienteInactivar.Text = "Inactivar";
             this.ClienteInactivar.Click += new System.EventHandler(this.ClienteInactivar_Click);
             // 
@@ -152,6 +154,13 @@
             this.Usuario.Name = "Usuario";
             this.Usuario.Size = new System.Drawing.Size(230, 26);
             this.Usuario.Text = "Usuario";
+            // 
+            // GestionSistema
+            // 
+            this.GestionSistema.Name = "GestionSistema";
+            this.GestionSistema.Size = new System.Drawing.Size(230, 26);
+            this.GestionSistema.Text = "Gestion del sistema";
+            this.GestionSistema.Click += new System.EventHandler(this.GestionSistema_Click);
             // 
             // operaciónToolStripMenuItem
             // 
@@ -227,12 +236,12 @@
             this.reporteToolStripMenuItem.Size = new System.Drawing.Size(85, 25);
             this.reporteToolStripMenuItem.Text = "Reporte";
             // 
-            // GestionSistema
+            // ClienteEditar
             // 
-            this.GestionSistema.Name = "GestionSistema";
-            this.GestionSistema.Size = new System.Drawing.Size(230, 26);
-            this.GestionSistema.Text = "Gestion del sistema";
-            this.GestionSistema.Click += new System.EventHandler(this.GestionSistema_Click);
+            this.ClienteEditar.Name = "ClienteEditar";
+            this.ClienteEditar.Size = new System.Drawing.Size(180, 26);
+            this.ClienteEditar.Text = "Edita";
+            this.ClienteEditar.Click += new System.EventHandler(this.ClienteEditar_Click);
             // 
             // FrmInicio_Presentacion
             // 
@@ -275,5 +284,6 @@
         private System.Windows.Forms.ToolStripMenuItem ArticuloTaller;
         private System.Windows.Forms.ToolStripMenuItem ArticuloInstalacion;
         private System.Windows.Forms.ToolStripMenuItem GestionSistema;
+        private System.Windows.Forms.ToolStripMenuItem ClienteEditar;
     }
 }

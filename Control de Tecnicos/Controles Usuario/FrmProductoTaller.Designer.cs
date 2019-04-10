@@ -47,7 +47,7 @@
             this.Panel2.Location = new System.Drawing.Point(0, 4);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(356, 202);
-            this.Panel2.TabIndex = 104;
+            this.Panel2.TabIndex = 0;
             // 
             // TxtCodigoProducto
             // 
@@ -57,7 +57,7 @@
             this.TxtCodigoProducto.MaxLength = 4;
             this.TxtCodigoProducto.Name = "TxtCodigoProducto";
             this.TxtCodigoProducto.Size = new System.Drawing.Size(96, 26);
-            this.TxtCodigoProducto.TabIndex = 28;
+            this.TxtCodigoProducto.TabIndex = 0;
             // 
             // BtnGuardar
             // 
@@ -69,9 +69,10 @@
             this.BtnGuardar.Location = new System.Drawing.Point(173, 150);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(158, 30);
-            this.BtnGuardar.TabIndex = 15;
+            this.BtnGuardar.TabIndex = 3;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // Label11
             // 
@@ -90,7 +91,7 @@
             this.TxtDescripcionProducto.Location = new System.Drawing.Point(54, 97);
             this.TxtDescripcionProducto.Name = "TxtDescripcionProducto";
             this.TxtDescripcionProducto.Size = new System.Drawing.Size(277, 26);
-            this.TxtDescripcionProducto.TabIndex = 30;
+            this.TxtDescripcionProducto.TabIndex = 1;
             // 
             // Label10
             // 
@@ -110,6 +111,7 @@
             this.Controls.Add(this.Panel2);
             this.Name = "FrmProductoTaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmProductoTaller_Load);
             this.Panel2.ResumeLayout(false);
             this.Panel2.PerformLayout();
             this.ResumeLayout(false);

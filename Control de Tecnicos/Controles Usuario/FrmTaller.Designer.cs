@@ -43,12 +43,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CboMarca = new System.Windows.Forms.ComboBox();
+            this.CboEquipo = new System.Windows.Forms.ComboBox();
             this.TxtGenerarOrden = new System.Windows.Forms.Button();
             this.DgvAccesorio = new System.Windows.Forms.DataGridView();
-            this.DgvProductosColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DgvAccesorioColCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvAccesorioColAccesorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DgvAccesorioColCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DgvAccesorioColSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.Label();
             this.TxtSerial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,6 +63,8 @@
             this.CboServicio = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.CboQuienrecibe = new System.Windows.Forms.ComboBox();
+            this.LblFechaInicio = new System.Windows.Forms.Label();
+            this.DtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccesorio)).BeginInit();
@@ -219,8 +223,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.LblFechaInicio);
+            this.groupBox2.Controls.Add(this.DtFechaInicio);
+            this.groupBox2.Controls.Add(this.CboMarca);
+            this.groupBox2.Controls.Add(this.CboEquipo);
             this.groupBox2.Controls.Add(this.TxtGenerarOrden);
             this.groupBox2.Controls.Add(this.DgvAccesorio);
             this.groupBox2.Controls.Add(this.Marca);
@@ -237,33 +243,33 @@
             this.groupBox2.Controls.Add(this.CboQuienrecibe);
             this.groupBox2.Location = new System.Drawing.Point(12, 214);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(936, 275);
+            this.groupBox2.Size = new System.Drawing.Size(936, 298);
             this.groupBox2.TabIndex = 101;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox2
+            // CboMarca
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(278, 102);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(148, 29);
-            this.comboBox2.TabIndex = 3;
+            this.CboMarca.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboMarca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CboMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CboMarca.FormattingEnabled = true;
+            this.CboMarca.Location = new System.Drawing.Point(278, 102);
+            this.CboMarca.Name = "CboMarca";
+            this.CboMarca.Size = new System.Drawing.Size(148, 29);
+            this.CboMarca.TabIndex = 3;
             // 
-            // comboBox1
+            // CboEquipo
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 100);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(258, 29);
-            this.comboBox1.TabIndex = 2;
+            this.CboEquipo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CboEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CboEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CboEquipo.FormattingEnabled = true;
+            this.CboEquipo.Location = new System.Drawing.Point(14, 100);
+            this.CboEquipo.Name = "CboEquipo";
+            this.CboEquipo.Size = new System.Drawing.Size(258, 29);
+            this.CboEquipo.TabIndex = 2;
             // 
             // TxtGenerarOrden
             // 
@@ -272,7 +278,7 @@
             this.TxtGenerarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TxtGenerarOrden.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtGenerarOrden.ForeColor = System.Drawing.Color.White;
-            this.TxtGenerarOrden.Location = new System.Drawing.Point(671, 233);
+            this.TxtGenerarOrden.Location = new System.Drawing.Point(671, 258);
             this.TxtGenerarOrden.Name = "TxtGenerarOrden";
             this.TxtGenerarOrden.Size = new System.Drawing.Size(239, 34);
             this.TxtGenerarOrden.TabIndex = 8;
@@ -282,6 +288,7 @@
             // 
             // DgvAccesorio
             // 
+            this.DgvAccesorio.AllowUserToAddRows = false;
             this.DgvAccesorio.AllowUserToDeleteRows = false;
             this.DgvAccesorio.AllowUserToResizeColumns = false;
             this.DgvAccesorio.AllowUserToResizeRows = false;
@@ -290,11 +297,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvAccesorio.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.DgvAccesorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvAccesorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
+            this.DgvAccesorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvAccesorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAccesorio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DgvProductosColDescripcion,
-            this.Column1});
+            this.DgvAccesorioColCodigo,
+            this.DgvAccesorioColAccesorio,
+            this.DgvAccesorioColCheck,
+            this.DgvAccesorioColSerial});
+            this.DgvAccesorio.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DgvAccesorio.EnableHeadersVisualStyles = false;
             this.DgvAccesorio.Location = new System.Drawing.Point(603, 17);
             this.DgvAccesorio.MultiSelect = false;
@@ -302,22 +312,33 @@
             this.DgvAccesorio.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvAccesorio.RowHeadersVisible = false;
             this.DgvAccesorio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvAccesorio.Size = new System.Drawing.Size(307, 169);
+            this.DgvAccesorio.Size = new System.Drawing.Size(327, 171);
             this.DgvAccesorio.TabIndex = 106;
             // 
-            // DgvProductosColDescripcion
+            // DgvAccesorioColCodigo
             // 
-            this.DgvProductosColDescripcion.HeaderText = "Accesorios";
-            this.DgvProductosColDescripcion.MaxInputLength = 10;
-            this.DgvProductosColDescripcion.Name = "DgvProductosColDescripcion";
-            this.DgvProductosColDescripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DgvProductosColDescripcion.Width = 280;
+            this.DgvAccesorioColCodigo.HeaderText = "Codigo";
+            this.DgvAccesorioColCodigo.Name = "DgvAccesorioColCodigo";
+            this.DgvAccesorioColCodigo.Visible = false;
             // 
-            // Column1
+            // DgvAccesorioColAccesorio
             // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 26;
+            this.DgvAccesorioColAccesorio.HeaderText = "Accesorios";
+            this.DgvAccesorioColAccesorio.MaxInputLength = 10;
+            this.DgvAccesorioColAccesorio.Name = "DgvAccesorioColAccesorio";
+            this.DgvAccesorioColAccesorio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DgvAccesorioColAccesorio.Width = 250;
+            // 
+            // DgvAccesorioColCheck
+            // 
+            this.DgvAccesorioColCheck.HeaderText = "";
+            this.DgvAccesorioColCheck.Name = "DgvAccesorioColCheck";
+            this.DgvAccesorioColCheck.Width = 26;
+            // 
+            // DgvAccesorioColSerial
+            // 
+            this.DgvAccesorioColSerial.HeaderText = "serial";
+            this.DgvAccesorioColSerial.Name = "DgvAccesorioColSerial";
             // 
             // Marca
             // 
@@ -363,7 +384,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(342, 213);
+            this.label20.Location = new System.Drawing.Point(342, 224);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(195, 21);
             this.label20.TabIndex = 110;
@@ -386,7 +407,7 @@
             this.CboResponsableArreglo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CboResponsableArreglo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CboResponsableArreglo.FormattingEnabled = true;
-            this.CboResponsableArreglo.Location = new System.Drawing.Point(336, 238);
+            this.CboResponsableArreglo.Location = new System.Drawing.Point(336, 249);
             this.CboResponsableArreglo.Name = "CboResponsableArreglo";
             this.CboResponsableArreglo.Size = new System.Drawing.Size(297, 29);
             this.CboResponsableArreglo.TabIndex = 7;
@@ -427,7 +448,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(20, 213);
+            this.label18.Location = new System.Drawing.Point(20, 224);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(110, 21);
             this.label18.TabIndex = 106;
@@ -440,17 +461,36 @@
             this.CboQuienrecibe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CboQuienrecibe.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CboQuienrecibe.FormattingEnabled = true;
-            this.CboQuienrecibe.Location = new System.Drawing.Point(14, 238);
+            this.CboQuienrecibe.Location = new System.Drawing.Point(14, 249);
             this.CboQuienrecibe.Name = "CboQuienrecibe";
             this.CboQuienrecibe.Size = new System.Drawing.Size(316, 29);
             this.CboQuienrecibe.TabIndex = 6;
+            // 
+            // LblFechaInicio
+            // 
+            this.LblFechaInicio.AutoSize = true;
+            this.LblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFechaInicio.Location = new System.Drawing.Point(670, 204);
+            this.LblFechaInicio.Name = "LblFechaInicio";
+            this.LblFechaInicio.Size = new System.Drawing.Size(85, 17);
+            this.LblFechaInicio.TabIndex = 111;
+            this.LblFechaInicio.Text = "Fecha inicio";
+            // 
+            // DtFechaInicio
+            // 
+            this.DtFechaInicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtFechaInicio.Location = new System.Drawing.Point(671, 224);
+            this.DtFechaInicio.Name = "DtFechaInicio";
+            this.DtFechaInicio.Size = new System.Drawing.Size(116, 26);
+            this.DtFechaInicio.TabIndex = 112;
             // 
             // FrmTaller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(960, 513);
+            this.ClientSize = new System.Drawing.Size(960, 524);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -493,14 +533,18 @@
         internal System.Windows.Forms.Label LblDireccion;
         internal System.Windows.Forms.Label Marca;
         internal System.Windows.Forms.DataGridView DgvAccesorio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DgvProductosColDescripcion;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         internal System.Windows.Forms.Label label20;
         internal System.Windows.Forms.ComboBox CboResponsableArreglo;
         internal System.Windows.Forms.Label label18;
         internal System.Windows.Forms.ComboBox CboQuienrecibe;
         private System.Windows.Forms.Button TxtGenerarOrden;
-        internal System.Windows.Forms.ComboBox comboBox2;
-        internal System.Windows.Forms.ComboBox comboBox1;
+        internal System.Windows.Forms.ComboBox CboMarca;
+        internal System.Windows.Forms.ComboBox CboEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvAccesorioColCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvAccesorioColAccesorio;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DgvAccesorioColCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DgvAccesorioColSerial;
+        internal System.Windows.Forms.Label LblFechaInicio;
+        private System.Windows.Forms.DateTimePicker DtFechaInicio;
     }
 }

@@ -125,7 +125,7 @@
             this.Panel1.Controls.Add(this.DgvClientes);
             this.Panel1.Location = new System.Drawing.Point(546, 588);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(128, 71);
+            this.Panel1.Size = new System.Drawing.Size(183, 114);
             this.Panel1.TabIndex = 58;
             this.Panel1.Visible = false;
             // 
@@ -188,7 +188,7 @@
             this.DgvClientes.ReadOnly = true;
             this.DgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvClientes.Size = new System.Drawing.Size(128, 35);
+            this.DgvClientes.Size = new System.Drawing.Size(183, 78);
             this.DgvClientes.TabIndex = 36;
             this.DgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellClick);
             // 
@@ -534,9 +534,9 @@
             this.label16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(48, 467);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(145, 21);
+            this.label16.Size = new System.Drawing.Size(155, 21);
             this.label16.TabIndex = 70;
-            this.label16.Text = "Telefono cotacto";
+            this.label16.Text = "Telefono contacto";
             // 
             // TxtTelContacto
             // 
@@ -609,7 +609,7 @@
             this.Controls.Add(this.TxtDocumento);
             this.Controls.Add(this.BtnGuardar);
             this.Name = "Control_Cliente";
-            this.Size = new System.Drawing.Size(568, 588);
+            this.Size = new System.Drawing.Size(551, 571);
             this.Load += new System.EventHandler(this.Control_Cliente_Load);
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();

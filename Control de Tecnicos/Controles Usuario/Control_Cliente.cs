@@ -20,6 +20,11 @@ namespace Control_de_Tecnicos.Controles_Usuario
         public Control_Cliente()
         {
             InitializeComponent();
+            //if (documento != "")
+            //{
+            //    TxtDocumento.Text = documento;
+            //    CboTipoPersona.Focus();
+            //}
         }
 
         public void CARGAR_TIPO_IDENTIFICACION(String VAL)
@@ -65,7 +70,6 @@ namespace Control_de_Tecnicos.Controles_Usuario
         private async void Control_Cliente_Load(object sender, EventArgs e)
         {
             await CARGAR_COMBOS();
-
             BuscarCliente(""); // BUSCAR Y CARGAR LOS CLINTES
         }
 
@@ -81,11 +85,11 @@ namespace Control_de_Tecnicos.Controles_Usuario
                 SQL = "SELECT Cli_Documento, Cli_TipoDocumento, Cli_Nombre, Cli_Apellido, " +     "       Cli_Sexo, Cli_Tipo, Cli_Direccion, Cli_Email, Cli_Celular, " +
                       "       Cli_TelFijo, Cli_Contacto, Cli_TelContacto " +
                       "FROM   Cliente " +
-                      "WHERE  Cli_Nombre LIKE ('%" + buscar + "%')";
+                      "WHERE Cli_CodEstado='A' AND Cli_Nombre LIKE ('%" + buscar + "%')";
             else
                 SQL = "SELECT Cli_Documento, Cli_TipoDocumento, Cli_Nombre, Cli_Apellido, " +     "       Cli_Sexo, Cli_Tipo, Cli_Direccion, Cli_Email, Cli_Celular, " +
                       "       Cli_TelFijo, Cli_Contacto, Cli_TelContacto " +
-                      "FROM   Cliente ";        
+                      "FROM   Cliente WHERE Cli_CodEstado='A'";        
                
             tabla = ObjServer.LlenarTabla(SQL);
             if (tabla.Rows.Count > 0)
@@ -203,10 +207,7 @@ namespace Control_de_Tecnicos.Controles_Usuario
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (!Guardar_o_Modificar)
-                ACTUALIZAR_DATOS();
-            else
-                GUARDAR_DATOS();
+            GUARDAR_DATOS();
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
